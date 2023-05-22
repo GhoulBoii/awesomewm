@@ -1,4 +1,4 @@
-local awful = require'awful'
+local awful = require("awful")
 
 awful.mouse.append_global_mousebindings{
    awful.button{

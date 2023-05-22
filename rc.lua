@@ -8,13 +8,10 @@ local gears = require("gears")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/pywal.lua")
 
 -- Load Bindings
-require("bindings")
+require("binds")
 
 -- Load Rules
 require("rules")
 
 -- Load Signals
-require("signals")
-
--- Load Widgets
--- require("widgets")
+require("sig")

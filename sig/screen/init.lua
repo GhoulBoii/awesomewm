@@ -1,7 +1,7 @@
 local awful = require'awful'
 local widgets = require("bar")
 
-local vars = require'config.vars'
+local vars = require("conf.vars")
 screen.connect_signal('request::desktop_decoration', function(s)
    awful.tag(vars.tags, s, awful.layout.layouts[1])
    s.promptbox = widgets.create_promptbox()

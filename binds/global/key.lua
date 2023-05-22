@@ -1,9 +1,9 @@
 local awful = require("awful")
 local menubar = require("menubar")
 
-local apps = require("config.apps")
-local mod = require("bindings.mod")
-local switcher = require("widgets.switcher")
+local apps = require("conf.apps")
+local mod = require("binds.mod")
+local switcher = require("binds.switcher")
 
 menubar.utils.terminal = apps.terminal
 
@@ -75,20 +75,7 @@ awful.keyboard.append_global_keybindings{
       description = 'focus the previous screen',
       group       = 'screen',
       on_press    = function () awful.screen.focus_relative(-1) end,
-
-   },
-   awful.key{
-      modifiers   = {mod.super, mod.ctrl},
-      key         = 'n',
-      description = 'restore minimized',
-      group       = 'client',
-      on_press    = function()
-         local c = awful.client.restore()
-         if c then
-            c:active{raise = true, context = 'key.unminimize'}
-         end
-      end,
-   },
+  },
 }
 
 -- layout related keybindings
@@ -106,13 +93,6 @@ awful.keyboard.append_global_keybindings{
       description = 'swap with previous client by index',
       group       = 'client',
       on_press    = function() awful.client.swap.byidx(-1) end,
-   },
-   awful.key{
-      modifiers   = {mod.super},
-      key         = 'u',
-      description = 'jump to urgent client',
-      group       = 'client',
-      on_press    = awful.client.urgent.jumpto,
    },
    awful.key{
       modifiers   = {mod.super},
@@ -162,13 +142,6 @@ awful.keyboard.append_global_keybindings{
       description = 'tile layout',
       group       = 'layout',
       on_press    = function() awful.layout.set(awful.layout.suit.tile) end,
-   },
-   awful.key{
-      modifiers   = {mod.super},
-      key         = 'f',
-      description = 'floating layout',
-      group       = 'layout',
-      on_press    = function() awful.layout.set(awful.layout.suit.floating) end,
    },
    awful.key{
       modifiers   = {mod.super,mod.shift},
@@ -240,17 +213,5 @@ awful.keyboard.append_global_keybindings{
             end
          end
       end,
-   },
-   awful.key{
-      modifiers   = {mod.super},
-      keygroup    = 'numpad',
-      description = 'select layout directly',
-      group       = 'layout',
-      on_press    = function(index)
-         local tag = awful.screen.focused().selected_tag
-         if tag then
-            tag.layout = tag.layouts[index] or tag.layout
-         end
-      end
    },
 }

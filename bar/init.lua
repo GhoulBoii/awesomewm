@@ -6,7 +6,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
-local mod = require("bindings.mod")
+local mod = require("binds.mod")
 
 _M.separator = wibox.widget {
   wibox.widget.textbox("|"),
@@ -83,7 +83,6 @@ gears.timer {
   end
 }
 
-
 function _M.create_promptbox() return awful.widget.prompt() end
 
 function _M.create_taglist(s)
@@ -144,21 +143,6 @@ function _M.create_tasklist(s)
             on_press  = function(c)
                c:activate{context = 'tasklist', action = 'toggle_minimization'}
             end,
-         },
-         awful.button{
-            modifiers = {},
-            button    = 3,
-            on_press  = function() awful.menu.client_list{theme = {width = 250}} end
-         },
-         awful.button{
-            modifiers = {},
-            button    = 4,
-            on_press  = function() awful.client.focus.byidx(-1) end
-         },
-         awful.button{
-            modifiers = {},
-            button    = 5,
-            on_press  = function() awful.client.focus.byidx(1) end
          },
       }
    }

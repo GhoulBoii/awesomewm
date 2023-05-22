@@ -1,6 +1,6 @@
 local awful = require("awful")
 
-local mod = require("bindings.mod")
+local mod = require("binds.mod")
 
 client.connect_signal('request::default_keybindings', function()
    awful.keyboard.append_client_keybindings{
@@ -29,7 +29,7 @@ client.connect_signal('request::default_keybindings', function()
          on_press    = awful.client.floating.toggle,
       },
       awful.key{
-         modifiers   = {mod.super, mod.ctrl},
+         modifiers   = {mod.super},
          key         = 'Return',
          description = 'move to master',
          group       = 'client',
@@ -71,32 +71,12 @@ client.connect_signal('request::default_keybindings', function()
          on_press    = function(c) c.minimized = true end,
       },
       awful.key{
-         modifiers   = {mod.super},
-         key         = 'm',
+         modifiers   = {mod.super, mod.shift},
+         key         = 'n',
          description = '(un)maximize',
          group       = 'client',
          on_press    = function(c)
             c.maximized = not c.maximized
-            c:raise()
-         end,
-      },
-      awful.key{
-         modifiers   = {mod.super, mod.ctrl},
-         key         = 'm',
-         description = '(un)maximize vertically',
-         group       = 'client',
-         on_press    = function(c)
-            c.maximized_vertical = not c.maximized_vertical
-            c:raise()
-         end,
-      },
-      awful.key{
-         modifiers   = {mod.super, mod.shift},
-         key         = 'm',
-         description = '(un)maximize horizontally',
-         group       = 'client',
-         on_press    = function(c)
-            c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
          end,
       },
