@@ -76,6 +76,16 @@ awful.keyboard.append_global_keybindings{
       group       = 'screen',
       on_press    = function () awful.screen.focus_relative(-1) end,
   },
+  awful.key{
+    modifiers   = {mod.super},
+    key         = 'z',
+    description = "Toggle wibox",
+    group       = "screen",
+    on_press    = function() 
+      local s = awful.screen.focused()
+      s.wibox.visible = not s.wibox.visible
+    end
+  }
 }
 
 -- layout related keybindings
