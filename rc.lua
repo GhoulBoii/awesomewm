@@ -3,9 +3,7 @@
 pcall(require, "luarocks.loader")
 
 --  Load Theme
-local beautiful = require("beautiful")
-local gears = require("gears")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/pywal.lua")
+require("beautiful").init("~/.config/awesome/theme/init.lua")
 
 -- Load Bindings
 require("binds")

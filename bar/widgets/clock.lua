@@ -6,9 +6,7 @@ local gears = require("gears")
 -- CLOCK --
 -----------
 
-local clock = wibox.widget {
-  widget = wibox.widget.textbox
-}
+local clock = wibox.widget.textbox()
 
 gears.timer {
   timeout   = 1,
