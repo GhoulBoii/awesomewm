@@ -7,9 +7,8 @@ local themes_path = gfs.get_themes_dir()
 
 -- inherit default theme
 local theme = dofile(themes_path.."default/theme.lua")
--- load vector assets' generators for this theme
 
-theme.font          = "FiraCode Nerd Font 14"
+theme.font          = "FiraCode Nerd Font Propo 14"
 
 theme.bg_normal     = xrdb.background
 theme.bg_focus      = xrdb.color12
@@ -27,7 +26,7 @@ theme.border_width  = dpi(2)
 theme.border_normal = xrdb.color0
 theme.border_focus  = theme.bg_focus
 theme.border_marked = xrdb.color10
-theme.gap_single_client = false
+theme.gap_single_client = true
 
 -- extra colors to choose
 theme.color00 = xrdb.color0
